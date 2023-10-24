@@ -42,60 +42,60 @@
 #print(getPrimeNumbers([1, 2, 5, 25, 36, 78, 11, 13]))
 
 # EX 3
-import copy
-from collections import defaultdict
-
-def listsOperation(a, b, operationType):
-    c = defaultdict(int)
-    d = defaultdict(int)
-    for x in a:
-        c[x] = c[x] + 1
-    for x in b:
-        d[x] = d[x] + 1
-
-    rez = []
-
-    if operationType == "intersect":
-        for x in a:
-            if c[x] > 0 and d[x] > 0:
-                rez.append(x)
-                c[x] = c[x] -1
-                d[x] = d[x] -1
-        return rez
-    if operationType == "reunite":
-        for x in a:
-            if c[x] > 0 or d[x] > 0:
-                rez.append(x)
-                c[x] = c[x] -1
-                d[x] = d[x] -1
-        return rez
-    if operationType == "minus second":
-        for x in a:
-            if c[x] > 0 and d[x] == 0:
-                rez.append(x)
-                c[x] = c[x] -1
-                d[x] = d[x] -1
-            if d[x] > 0:
-                c[x] = c[x] -1
-                d[x] = d[x] -1
-        return rez
-    if operationType == "minus first":
-        for x in b:
-            if d[x] > 0 and c[x] == 0:
-                rez.append(x)
-                c[x] = c[x] -1
-                d[x] = d[x] -1
-            if c[x] > 0:
-                c[x] = c[x] -1
-                d[x] = d[x] -1
-        return rez
-
-a = [2, 4, 2, 2, 5]
-b = [2, 2, 4, 6]
-print(listsOperation(a, b, "intersect"))
-print(listsOperation(a, b, "reunite"))
-print(listsOperation(a, b, "minus second"))
-print(listsOperation(a, b, "minus first"))
+#import copy
+#from collections import defaultdict
+#
+#def listsOperation(a, b, operationType):
+#    c = defaultdict(int)
+#    d = defaultdict(int)
+#    for x in a:
+#        c[x] = c[x] + 1
+#    for x in b:
+#        d[x] = d[x] + 1
+#
+#    rez = []
+#
+#    if operationType == "intersect":
+#        for x in a:
+#            if c[x] > 0 and d[x] > 0:
+#                rez.append(x)
+#                c[x] = c[x] -1
+#                d[x] = d[x] -1
+#        return rez
+#    if operationType == "reunite":
+#        for x in a:
+#            if c[x] > 0 or d[x] > 0:
+#                rez.append(x)
+#                c[x] = c[x] -1
+#                d[x] = d[x] -1
+#        return rez
+#    if operationType == "minus second":
+#        for x in a:
+#            if c[x] > 0 and d[x] == 0:
+#                rez.append(x)
+#                c[x] = c[x] -1
+#                d[x] = d[x] -1
+#            if d[x] > 0:
+#                c[x] = c[x] -1
+#                d[x] = d[x] -1
+#        return rez
+#    if operationType == "minus first":
+#        for x in b:
+#            if d[x] > 0 and c[x] == 0:
+#                rez.append(x)
+#                c[x] = c[x] -1
+#                d[x] = d[x] -1
+#            if c[x] > 0:
+#                c[x] = c[x] -1
+#                d[x] = d[x] -1
+#        return rez
+#
+#a = [2, 4, 2, 2, 5]
+#b = [2, 2, 4, 6]
+#print(listsOperation(a, b, "intersect"))
+#print(listsOperation(a, b, "reunite"))
+#print(listsOperation(a, b, "minus second"))
+#print(listsOperation(a, b, "minus first"))
 
 # EX 4
 #def compose(notes, moves, start):
