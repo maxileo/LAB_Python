@@ -43,49 +43,55 @@
 
 # EX 3
 import copy
+from collections import defaultdict
 
 def listsOperation(a, b, operationType):
+    c = defaultdict(int)
+    d = defaultdict(int)
+    for x in a:
+        c[x] = c[x] + 1
+    for x in b:
+        d[x] = d[x] + 1
+
+    rez = []
+
     if operationType == "intersect":
-        c = []
         for x in a:
-            if x in b:
-                c.append(x)
-        return c
+            if c[x] > 0 and d[x] > 0:
+                rez.append(x)
+                c[x] = c[x] -1
+                d[x] = d[x] -1
+        return rez
     if operationType == "reunite":
-        c = []
         for x in a:
-            if x not in c:
-                c.append(x)
-        for x in b:
-            if x not in c:
-                c.append(x)
-        return c
+            if c[x] > 0 or d[x] > 0:
+                rez.append(x)
+                c[x] = c[x] -1
+                d[x] = d[x] -1
+        return rez
     if operationType == "minus second":
-        c = []
         for x in a:
-            if x not in b:
-                c.append(x)
-        return c
+            if c[x] > 0 and d[x] == 0:
+                rez.append(x)
+                c[x] = c[x] -1
+                d[x] = d[x] -1
+            if d[x] > 0:
+                c[x] = c[x] -1
+                d[x] = d[x] -1
+        return rez
     if operationType == "minus first":
-        c = []
         for x in b:
-            if x not in a:
-                c.append(x)
-        return c 
-#def listsOperation(a, b, operationType):
-#    a = set(a)
-#    b = set(b)
-#    if operationType == "intersect":
-#        return list(a.intersection(b))
-#    if operationType == "reunite":
-#        return list(a.union(b))
-#    if operationType == "minus second":
-#        return list(a.difference(b))
-#    if operationType == "minus first":
-#        return list(b.difference(a))
-#
-a = [2, 3, 5, 8, 10, 12, 15, 15]
-b = [2, 4, 5, 8, 11, 12, 12, 36]
+            if d[x] > 0 and c[x] == 0:
+                rez.append(x)
+                c[x] = c[x] -1
+                d[x] = d[x] -1
+            if c[x] > 0:
+                c[x] = c[x] -1
+                d[x] = d[x] -1
+        return rez
+
+a = [2, 4, 2, 2, 5]
+b = [2, 2, 4, 6]
 print(listsOperation(a, b, "intersect"))
 print(listsOperation(a, b, "reunite"))
 print(listsOperation(a, b, "minus second"))
