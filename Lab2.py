@@ -42,6 +42,36 @@
 #print(getPrimeNumbers([1, 2, 5, 25, 36, 78, 11, 13]))
 
 # EX 3
+import copy
+
+def listsOperation(a, b, operationType):
+    if operationType == "intersect":
+        c = []
+        for x in a:
+            if x in b:
+                c.append(x)
+        return c
+    if operationType == "reunite":
+        c = []
+        for x in a:
+            if x not in c:
+                c.append(x)
+        for x in b:
+            if x not in c:
+                c.append(x)
+        return c
+    if operationType == "minus second":
+        c = []
+        for x in a:
+            if x not in b:
+                c.append(x)
+        return c
+    if operationType == "minus first":
+        c = []
+        for x in b:
+            if x not in a:
+                c.append(x)
+        return c 
 #def listsOperation(a, b, operationType):
 #    a = set(a)
 #    b = set(b)
@@ -54,12 +84,12 @@
 #    if operationType == "minus first":
 #        return list(b.difference(a))
 #
-#a = [2, 3, 5, 8, 10, 12, 15]
-#b = [2, 4, 5, 8, 11, 12, 36]
-#print(listsOperation(a, b, "intersect"))
-#print(listsOperation(a, b, "reunite"))
-#print(listsOperation(a, b, "minus second"))
-#print(listsOperation(a, b, "minus first"))
+a = [2, 3, 5, 8, 10, 12, 15, 15]
+b = [2, 4, 5, 8, 11, 12, 12, 36]
+print(listsOperation(a, b, "intersect"))
+print(listsOperation(a, b, "reunite"))
+print(listsOperation(a, b, "minus second"))
+print(listsOperation(a, b, "minus first"))
 
 # EX 4
 #def compose(notes, moves, start):
