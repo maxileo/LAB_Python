@@ -1,75 +1,86 @@
-
 # EX 1
 
-#class Stack:
+# class Node:
+#     def __init__(self, value):
+#         self.value = value
+#         self.previous = None
+
+# class Stack:
 #    def __init__(self):
-#        self.values = []
-#
+#        self.top = None
+
 #    def push(self, element):
-#        self.values.append(element)
-#    
+#        new_node = Node(element)
+#        new_node.previous = self.top
+#        self.top = new_node
+   
 #    def peek(self):
-#        if len(self.values) == 0:
+#        if self.top == None:
 #            return None
-#        return self.values[-1]
-#    
+#        return self.top.value
+   
 #    def pop(self):
-#        if len(self.values) == 0:
+#        if self.top == None:
 #            return None
-#        element = self.values[-1]
-#        self.values = self.values[0:-1]
+#        element = self.top.value
+#        self.top = self.top.previous
 #        return element
-#    
-#    def print(self):
-#        for value in self.values:
-#            print(value, end=" ")
-#        print("")
-#    
-#stack = Stack()
-#stack.push(5)
-#stack.push(7)
-#stack.push(8)
-#stack.print()
-#print(stack.peek())
-#stack.print()
-#print(stack.pop())
-#stack.print()
+   
+# stack = Stack()
+# stack.push(5)
+# stack.push(7)
+# stack.push(8)
+# print(stack.peek())
+# print(stack.pop())
+# print(stack.pop())
+# stack.push(9)
+# print(stack.pop())
+# print(stack.pop())
 
 # EX 2
 
-#class Queue:
+# class Node:
+#     def __init__(self, value):
+#         self.value = value
+#         self.next = None
+
+# class Queue:
 #    def __init__(self):
-#        self.values = []
-#
+#        self.first = None
+
 #    def push(self, element):
-#        self.values.append(element)
-#    
+#        new_node = Node(element)
+#        if self.first == None:
+#            self.first = new_node
+#        else:
+#            element = self.first
+#            while element.next != None:
+#                element = element.next
+#            element.next = new_node
+           
 #    def peek(self):
-#        if len(self.values) == 0:
+#        if self.first == None:
 #            return None
-#        return self.values[0]
-#    
+#        return self.first.value
+   
 #    def pop(self):
-#        if len(self.values) == 0:
+#        if self.first == None:
 #            return None
-#        element = self.values[0]
-#        self.values = self.values[1:]
+#        element = self.first.value
+#        self.first = self.first.next
 #        return element
-#    
-#    def print(self):
-#        for value in self.values:
-#            print(value, end=" ")
-#        print("")
-#    
-#queue = Queue()
-#queue.push(5)
-#queue.push(7)
-#queue.push(8)
-#queue.print()
-#print(queue.peek())
-#queue.print()
-#print(queue.pop())
-#queue.print()
+   
+# queue = Queue()
+# queue.push(5)
+# queue.push(7)
+# queue.push(8)
+# print(queue.peek())
+# print(queue.pop())
+# print(queue.pop())
+# queue.push(9)
+# print(queue.pop())
+# print(queue.pop())
+# print(queue.pop())
 
 # EX 3
 #import copy
