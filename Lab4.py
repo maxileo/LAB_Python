@@ -1,4 +1,5 @@
 # EX 1
+# import copy
 
 # class Node:
 #     def __init__(self, value):
@@ -10,14 +11,14 @@
 #        self.top = None
 
 #    def push(self, element):
-#        new_node = Node(element)
+#        new_node = Node(copy.deepcopy(element))
 #        new_node.previous = self.top
 #        self.top = new_node
    
 #    def peek(self):
 #        if self.top == None:
 #            return None
-#        return self.top.value
+#        return copy.deepcopy(self.top.value)
    
 #    def pop(self):
 #        if self.top == None:
@@ -38,6 +39,7 @@
 # print(stack.pop())
 
 # EX 2
+# import copy
 
 # class Node:
 #     def __init__(self, value):
@@ -49,7 +51,7 @@
 #        self.first = None
 
 #    def push(self, element):
-#        new_node = Node(element)
+#        new_node = Node(copy.deepcopy(element))
 #        if self.first == None:
 #            self.first = new_node
 #        else:
@@ -61,7 +63,7 @@
 #    def peek(self):
 #        if self.first == None:
 #            return None
-#        return self.first.value
+#        return copy.deepcopy(self.first.value)
    
 #    def pop(self):
 #        if self.first == None:
