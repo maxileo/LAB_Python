@@ -388,7 +388,6 @@
 #         print(f"Issue Number: {self.issue_number}")
 
 
-# # Example usage:
 # book = Book(title="Cronicile ucigasului de regi", item_id="B001", author="Patrick Rothfuss")
 # book.display_info()
 # book.check_out("Stefan Casuneanu")
